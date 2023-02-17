@@ -1,1 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~resources/scss/partials/_variables.scss';
+@import '~resources/scss/partials/_mixins.scss';
+@import '~resources/scss/partials/_comics.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
