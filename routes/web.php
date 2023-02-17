@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/home/{title}', function($title){
     $fumetti = config('db.comics');
-
+    
     foreach($fumetti as $fumetto){
         if($fumetto['title'] == $title){
             $single = $fumetto;

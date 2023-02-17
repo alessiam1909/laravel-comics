@@ -1,10 +1,5 @@
+@extends('layouts.app')
 
-
-
-
-@include('partials.header')
-    <div class="jumbotron">
-    </div>
 @section('content')
 <div class="blue-ctn">
     <div class="ctn-img">
@@ -22,4 +17,4 @@
         <img src="{{Vite::asset('resources/images/adv.jpg')}}" alt="adv-img">
     </div>
 </div>
-@include('partials.footer')
+@endsection
