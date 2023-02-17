@@ -16,71 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $fumetti = config('db.comics');
     return view('home', compact('fumetti'));
-});
+})->name('home');
 
+Route::get('/home/{title}', function($title){
+    $fumetti = config('db.comics');
 
-Route::get('/header', function(){
-    $nav =  [
-        [
-            "label" =>'CHARACTERS',
-            "url"=> '#',
-            "active"=> false
+    foreach($fumetti as $fumetto){
+        if($fumetto['title'] == $title){
+            $single = $fumetto;
+        }
+    }
 
-        ],
-        [
-            "label" =>'COMICS',
-            "url"=> '#',
-            "active"=> true
+    $single = $fumetto;
 
-        ],
-        [
-            "label" =>'MOVIES',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'TV',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'GAMES',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'COLLECTIBLES',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'VIDEOS',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'FANS',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'NEWS',
-            "url"=> '#',
-            "active"=> false
-
-        ],
-        [
-            "label" =>'SHOP',
-            "url"=> '#',
-            "active"=> false
-
-        ]
-        ];
-        return view('header', compact('nav'));
-});
+    return view('details_fumetto', compact('single'));
+})->name('details_fumetto');
