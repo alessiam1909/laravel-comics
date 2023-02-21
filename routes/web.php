@@ -15,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $fumetti = config('db.comics');
-    return view('home', compact('fumetti'));
+    $nav_menu = config('db.nav');
+    $icons  =config('db.social_icons');
+    return view('home', compact('fumetti', 'nav_menu', 'icons'));
 })->name('home');
 
 Route::get('/home/{id}', function($id){
     $fumetti = config('db.comics');
     $icons  =config('db.social_icons');
+    $nav_menu = config('db.nav');
     $single= '';
     foreach($fumetti as $key => $fumetto){
         if($key == $id){
@@ -29,5 +32,5 @@ Route::get('/home/{id}', function($id){
     }
 
 
-    return view('details_fumetto', compact('single', "icons"));
+    return view('details_fumetto', compact('single', "icons", "nav_menu"));
 })->name('details_fumetto');
