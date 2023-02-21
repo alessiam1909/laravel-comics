@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/home/{id}', function($id){
     $fumetti = config('db.comics');
+    $icons  =config('db.social_icons');
     $single= '';
     foreach($fumetti as $key => $fumetto){
         if($key == $id){
@@ -28,5 +29,5 @@ Route::get('/home/{id}', function($id){
     }
 
 
-    return view('details_fumetto', compact('single'));
+    return view('details_fumetto', compact('single', "icons"));
 })->name('details_fumetto');

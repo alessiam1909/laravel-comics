@@ -278,6 +278,29 @@ return [
             "active"=> false
 
         ]
-    ]
+        ],
+        'social_icons'=> [
+            [
+                
+                "logo"=> "resources/images/footer-facebook.png",
+            ],
+            [
+                
+                "logo"=> "resources/images/footer-periscope.png",
+            ],
+            [
+                
+                "logo"=> "resources/images/footer-pinterest.png",
+            ],
+            [
+                
+                "logo"=> "resources/images/footer-twitter.png",
+            ],
+
+            [
+                
+                "logo"=> "resources/images/footer-youtube.png",
+            ]
+        ]
 ];
 
