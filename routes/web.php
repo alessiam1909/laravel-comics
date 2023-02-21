@@ -18,16 +18,15 @@ Route::get('/', function () {
     return view('home', compact('fumetti'));
 })->name('home');
 
-Route::get('/home/{title}', function($title){
+Route::get('/home/{id}', function($id){
     $fumetti = config('db.comics');
-    
-    foreach($fumetti as $fumetto){
-        if($fumetto['title'] == $title){
+    $single= '';
+    foreach($fumetti as $key => $fumetto){
+        if($key == $id){
             $single = $fumetto;
         }
     }
 
-    $single = $fumetto;
 
     return view('details_fumetto', compact('single'));
 })->name('details_fumetto');
